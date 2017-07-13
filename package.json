@@ -1,0 +1,21 @@
+{
+  "name": "javascript-tutorials",
+  "private": true,
+  "version": "1.0.0",
+  "description": "AdRem Software JavaScript Tutorials",
+  "scripts": {
+    "tutorial1": "node src/tutorial1.js",
+    "install-prod-modules": "yarn install --production --pure-lockfile",
+    "install-modules": "yarn install --pure-lockfile"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "author": "AdRem Software, Inc., New York, NY",
+  "dependencies": {
+    "debug": "2.6.8",
+    "yarn": "0.27.5"
+  },
+  "devDependencies": {
+  }
+}
