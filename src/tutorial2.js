@@ -53,6 +53,9 @@ function functions() {
         /* Function multiply is created inside function fifthFunction.
            During creation of multiply closure for this function is saved and contains value of firstFactor.
            Value of firstFactor will be available inside multiply for all the time its existence.
+
+           Additional information about closures:
+           https://developer.mozilla.org/en/docs/Web/JavaScript/Closures
          */
         function multiply(secondFactor) {
             return firstFactor * secondFactor;

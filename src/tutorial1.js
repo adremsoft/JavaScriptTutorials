@@ -12,6 +12,11 @@
 
 'use strict';
 
+/*
+  Why strict mode 'use strict' is so important !
+  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
+*/
+
 const
     debug = require('debug');
 
