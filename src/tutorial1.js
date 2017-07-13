@@ -10,6 +10,9 @@
  * 2017 Copyright AdRem Software, all rights reserved
  */
 
+// Node API
+// https://nodejs.org/dist/latest-v8.x/docs/api/
+
 'use strict';
 
 /*
