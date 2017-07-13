@@ -65,8 +65,8 @@ function arrays() {
 }
 
 /*
-  Functional approach to processing arrays and objects:
-  Function forEach, map, filter, some, every, reduce are very helpful
+  Functional approach to processing arrays and objects.
+  Function forEach, map, filter, some, every, reduce are very helpful.
  */
 
 function functionalProcessing() {
@@ -124,3 +124,32 @@ function functionalProcessing() {
 
 arrays();
 functionalProcessing();
+
+/* Exercises:
+
+  1. Write a function that will add all its parameters.
+     The number of parameters is not specified. Parameters are a numeric values.
+
+     addValues(2, 3, 4.5);
+
+  2. Write a function that will multiply all its parameters.
+     The number of parameters is not specified. Parameters are numeric values.
+
+     multiplyValues(2, 3, 4.5);
+
+  3. Write a function that get two arguments: array and function and executes that function with parameters
+     passed in array.
+
+     performTask(func, parameters);
+     performTask(addValues, [1, 2, 3, 4]) => return 10
+     performTask(multiplyValues, [1, 2, 3, 4]) => return 24
+
+  4. Write a function which read integers from file and find primes.
+     Sample files:
+        /data/integers1.txt
+        /data/integers2.txt
+
+     Apply Sieve of Eratosthenes algorithm and and solve the problem by functional approach.
+     https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+
+ */
