@@ -15,6 +15,11 @@
 const
     debug = require('debug');
 
+/*
+  Clean code javascript
+  https://github.com/airbnb/javascript
+  https://github.com/ryanmcdermott/clean-code-javascript
+*/
 
 // JavaScript Primitives
 

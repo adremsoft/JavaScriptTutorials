@@ -4,7 +4,10 @@
   "version": "1.0.0",
   "description": "AdRem Software JavaScript Tutorials",
   "scripts": {
-    "tutorial1": "node src/tutorial1.js",
+    "tutorial1": "node ./src/tutorial1.js",
+    "tutorial1-inspect": "node --inspect-brk ./src/tutorial1.js",
+    "tutorial2": "node ./src/tutorial2.js",
+    "tutorial2-inspect": "node --inspect-brk ./src/tutorial2.js",
     "install-prod-modules": "yarn install --production --pure-lockfile",
     "install-modules": "yarn install --pure-lockfile"
   },
