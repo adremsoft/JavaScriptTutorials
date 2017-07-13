@@ -97,6 +97,10 @@ function jsPrimitives() {
         objectDebug(Object.keys(literalObject));
         objectDebug('Literal object has entries:');
         objectDebug(Object.entries(literalObject));
+
+        objectDebug('Access to property value:');
+        objectDebug(`Value of property abc: ${literalObject.abc}`);
+        objectDebug(`Value of  property 'string property name': ${literalObject['string property name']}`);
     }
 
     boolean();
