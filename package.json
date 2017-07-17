@@ -17,7 +17,9 @@
   "author": "AdRem Software, Inc., New York, NY",
   "dependencies": {
     "debug": "2.6.8",
-    "yarn": "0.27.5"
+    "yarn": "0.27.5",
+    "request": "2.81.0",
+    "request-promise": "4.2.1"
   },
   "devDependencies": {
   }
