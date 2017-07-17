@@ -12,9 +12,7 @@
 
 'use strict';
 
-const
-    util = require('util'),
-    debug = require('debug');
+const debug = require('debug');
 
 /*
   Async task emulator
@@ -123,7 +121,7 @@ function sequenceOfCallbackTasks() {
 }
 
 /*
-  Promise adapter for callback interface
+  Promise is an adapter for callback interface
   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 */
 
@@ -193,6 +191,50 @@ function automaticSequenceOfPromiseTasks(numberOfTasks = 10, failureProbability 
 }
 
 /*
+  https://hackernoon.com/6-reasons-why-javascripts-async-await-blows-promises-away-tutorial-c7ec10518dd9
+ */
+async function sequenceOfAwaitTasks(failureProbability = 0) {
+    const sequenceTasksDebug = debug('Await sequence tasks: ');
+
+    function task(name) {
+        return asyncTaskPromise({name, failureProbability});
+    }
+
+    try {
+        sequenceTasksDebug('Start');
+        await task(1);
+        await task(2);
+        await task(3);
+        await task(4);
+        sequenceTasksDebug('Completed');
+    } catch (error) {
+        sequenceTasksDebug(error);
+    }
+}
+
+function intervalService(duration = 5000) {
+    let counter = 0;
+
+    const
+        intervalServiceDebug1 = debug('Interval service 1: '),
+        intervalServiceDebug2 = debug('Interval service 2: '),
+        intervalHandle1 = setInterval(() => {
+            counter += 1;
+            intervalServiceDebug1(`Execution: ${counter}`);
+        }, 100),
+        intervalHandle2 = setInterval(() => {
+            counter += 1;
+            intervalServiceDebug2(`Execution: ${counter}`);
+        }, 500);
+
+    asyncTaskPromise({name: 'cancelInterval', timeout: duration})
+        .then(() => {
+            clearInterval(intervalHandle1);
+            clearInterval(intervalHandle2);
+        });
+}
+
+/*
   Asynchronous tasks execution
  */
 
@@ -258,6 +300,7 @@ asyncTaskPromise({name: 2, failureProbability: 0.75})
 
 // sequenceOfPromiseTasks(0);
 
+/*
 automaticSequenceOfPromiseTasks(5, 0)
     .then(result => {
         const taskDebug = debug('Automatic sequence');
@@ -268,3 +311,33 @@ automaticSequenceOfPromiseTasks(5, 0)
         const taskDebug = debug('Automatic sequence');
         taskDebug(error);
     });
+*/
+
+// sequenceOfAwaitTasks(0);
+
+// intervalService();
+
+/* Exercises:
+
+    Write a function that loads resources by HTTP.
+    Use native nodejs http: https://nodejs.org/dist/latest-v8.x/docs/api/http.html
+    or request: https://www.npmjs.com/package/request
+
+    Use promises for managing asynchronous http requests.
+
+    sampleResources = [
+        'http://jsonplaceholder.typicode.com/posts?userId=1',
+        'http://jsonplaceholder.typicode.com/todos?userId=1',
+        'http://jsonplaceholder.typicode.com/albums?userId=1',
+        'http://jsonplaceholder.typicode.com/posts?userId=3',
+        'http://jsonplaceholder.typicode.com/todos?userId=3',
+        'http://jsonplaceholder.typicode.com/albums?userId=3',
+        'http://jsonplaceholder.typicode.com/posts?userId=6',
+        'http://jsonplaceholder.typicode.com/todos?userId=6',
+        'http://jsonplaceholder.typicode.com/albums?userId=6'
+    ]
+
+    loadResourcesSequentially(sampleResources) -> array of results
+    loadResourcesParallel(sampleResources) -> array of results
+
+ */
