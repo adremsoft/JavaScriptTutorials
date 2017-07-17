@@ -122,3 +122,149 @@ function sequenceOfCallbackTasks() {
 
 }
 
+/*
+  Promise adapter for callback interface
+  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+*/
+
+function asyncTaskPromise(options) {
+    return new Promise((resolve, reject) => {
+        asyncTaskCallback(options, (err, result) => {
+            if (err == null) {
+                resolve(result);
+            } else {
+                reject(err);
+            }
+        });
+    });
+}
+
+function parallelProcessingOfPromiseTasks(failureProbability = 0) {
+    const parallelTasksDebug = debug('Parallel tasks');
+
+    function task(name) {
+        return asyncTaskPromise({name, failureProbability});
+    }
+
+    const
+        taskIds = Array.from({length: 10}, (value, index) => index + 1),
+        taskPromises = taskIds.map(taskId => task(taskId));
+
+    return Promise.all(taskPromises)
+        .then(result => {
+            parallelTasksDebug('Success');
+            parallelTasksDebug(result);
+        })
+        .catch(error => parallelTasksDebug(error));
+}
+
+function sequenceOfPromiseTasks(failureProbability = 0) {
+    const sequenceTasksDebug = debug('Sequence tasks: ');
+
+    function task(name) {
+        return asyncTaskPromise({name, failureProbability});
+    }
+
+    return task(1)
+        .then(() => task(2))
+        .then(() => task(3))
+        .then(() => sequenceTasksDebug('Completed'))
+        .catch(error => sequenceTasksDebug(error));
+}
+
+function automaticSequenceOfPromiseTasks(numberOfTasks = 10, failureProbability = 0) {
+    const taskIds = Array.from({length: numberOfTasks}, (value, index) => index + 1);
+
+    function task (name) {
+        return asyncTaskPromise({ name, failureProbability });
+    }
+
+    return taskIds.reduce((promisesChain, taskId) => {
+        return promisesChain
+            .then(taskResults => {
+                return task(taskId).
+                    then(result => {
+                        taskResults.push(result);
+                        return taskResults;
+                });
+            });
+    }, Promise.resolve([]));
+
+}
+
+/*
+  Asynchronous tasks execution
+ */
+
+/*
+asyncTaskCallback({name: 1}, (err, result) => {
+    const taskDebug = debug('Task 1');
+
+    if (err == null) {
+        taskDebug(result);
+    } else {
+        taskDebug(err);
+    }
+
+});
+*/
+
+/*
+asyncTaskCallback({name: 2, failureProbability: 0.75}, (err, result) => {
+    const taskDebug = debug('Task 2');
+
+    if (err == null) {
+        taskDebug(result);
+    } else {
+        taskDebug(err);
+    }
+
+});
+*/
+
+/*
+parallelProcessingOfCallbackTasks();
+*/
+
+/*
+sequenceOfCallbackTasks();
+*/
+
+/*
+asyncTaskPromise({name: 1})
+    .then(result => {
+        const taskDebug = debug('Task 1');
+        taskDebug(result);
+    })
+    .catch(error => {
+        const taskDebug = debug('Task 1');
+        taskDebug(error);
+    });
+*/
+
+/*
+asyncTaskPromise({name: 2, failureProbability: 0.75})
+    .then(result => {
+        const taskDebug = debug('Task 2');
+        taskDebug(result);
+    })
+    .catch(error => {
+        const taskDebug = debug('Task 2');
+        taskDebug(error);
+    });
+*/
+
+// parallelProcessingOfPromiseTasks(0);
+
+// sequenceOfPromiseTasks(0);
+
+automaticSequenceOfPromiseTasks(5, 0)
+    .then(result => {
+        const taskDebug = debug('Automatic sequence');
+        taskDebug('Result');
+        taskDebug(result);
+    })
+    .catch(error => {
+        const taskDebug = debug('Automatic sequence');
+        taskDebug(error);
+    });
