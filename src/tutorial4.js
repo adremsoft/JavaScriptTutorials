@@ -317,9 +317,9 @@ automaticSequenceOfPromiseTasks(5, 0)
 
 // intervalService();
 
-/* Exercises:
+/* Exercise:
 
-    Write a function that loads resources by HTTP.
+    Write a functions for loading resources by HTTP.
     Use native nodejs http: https://nodejs.org/dist/latest-v8.x/docs/api/http.html
     or request: https://www.npmjs.com/package/request
 
@@ -337,7 +337,7 @@ automaticSequenceOfPromiseTasks(5, 0)
         'http://jsonplaceholder.typicode.com/albums?userId=6'
     ]
 
-    loadResourcesSequentially(sampleResources) -> array of results
     loadResourcesParallel(sampleResources) -> array of results
+    loadResourcesSequentially(sampleResources) -> array of results
 
  */
