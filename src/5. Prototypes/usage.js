@@ -93,3 +93,54 @@ useClassExtension();
 useES6Class();
 useES6ClassExtension();
 useSingleton();
+
+/* Exercise
+
+    We have given specification of interface as follow:
+
+    const INTERFACE = {
+        'name?': 'string',
+        'state': 'boolean',
+        'value': 'number',
+        'elementName': 'ElementClass'
+        'variant': 'any',
+        'methodName': 'method'
+    }
+
+    which is similar to TypeScript interface declaration.
+    Write a function which check if instance implements given interface:
+
+    implements(instance, INTERFACE_DEF) => true | false
+
+    Use among other follow operations:
+      * Object.getOwnPropertyNames
+      * typeof
+      * instanceof
+      * Object.getPrototypeOf
+
+    Sample:
+
+        const INSTANCE_INTERFACE = {
+            'name?': 'string',
+            'state': 'boolean',
+            'value': 'number',
+            'element': 'ES6Class'
+            'variant': 'any',
+            'showId': 'method'
+        }
+
+        class SampleInstance extends BaseClass {
+
+          constructor() {
+            this.name = 'sample instance',
+            this.state = false,
+            this.value = 0,
+            this.variant = 'variant value',
+            this.element: new ES6Class(2);
+           }
+
+        }
+
+      implements(new SampleInstance(), INSTANCE_INTERFACE) ---> true;
+
+ */
