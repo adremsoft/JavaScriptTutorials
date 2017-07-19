@@ -17,7 +17,7 @@ const
     path = require('path'),
     debug = require('debug'),
 
-    DATA_FOLDER = '../data/',
+    DATA_FOLDER = '../../data/',
     TEXT_FILE = 'textFile.txt';
 
 function readFile(fileName) {
