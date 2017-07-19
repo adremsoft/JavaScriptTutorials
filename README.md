@@ -1,3 +1,7 @@
+## Dependencies
+
+* Node.js v8.1
+
 ## Installation
 
 `npm install`
