@@ -296,7 +296,7 @@ asyncTaskPromise({name: 2, failureProbability: 0.75})
     });
 */
 
-// parallelProcessingOfPromiseTasks(0);
+parallelProcessingOfPromiseTasks(0);
 
 // sequenceOfPromiseTasks(0);
 
