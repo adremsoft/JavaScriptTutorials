@@ -2,7 +2,7 @@
   "name": "javascript-tutorials",
   "private": true,
   "version": "1.0.0",
-  "description": "AdRem Software JavaScript Tutorials",
+  "description": "JavaScript tutorials for interns",
   "scripts": {
     "primitives": "node \"./src/1. Primitives/primitives.js\"",
     "functions": "node \"./src/2. Functions/functions.js\"",
@@ -14,9 +14,9 @@
     "type": "git"
   },
   "author": "AdRem Software, Inc., New York, NY",
+  "license": "Apache License, Version 2.0",
   "dependencies": {
     "debug": "2.6.8",
-    "yarn": "0.27.5",
     "request": "2.81.0",
     "request-promise": "4.2.1"
   },

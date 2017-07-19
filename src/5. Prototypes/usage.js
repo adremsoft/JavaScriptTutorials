@@ -110,7 +110,7 @@ useSingleton();
     which is similar to TypeScript interface declaration.
     Write a function which check if instance implements given interface:
 
-    implements(instance, interfaceDefinition) => true | false
+    implements(instance, interfaceDefinition) --> true | false
 
     Use among other follow operations:
       * Object.getOwnPropertyNames
@@ -120,27 +120,27 @@ useSingleton();
 
     Sample:
 
-        const INSTANCE_INTERFACE = {
+        const INTERFACE_SPEC = {
             'name?': 'string',
             'state': 'boolean',
             'value': 'number',
-            'element': 'ES6Class'
+            'element': 'ES6ClassExtension'
             'variant': 'any',
             'showId': 'method'
         }
 
-        class SampleInstance extends ClassWithPrototype {
+        class TestClass extends ES6Class {
 
           constructor() {
             this.name = 'sample instance',
             this.state = false,
             this.value = 0,
             this.variant = 'variant value',
-            this.element: new ES6Class(2);
+            this.element: new ES6ClassExtension(1);
           }
 
         }
 
-        implements(new SampleInstance(), INSTANCE_INTERFACE) ---> true;
+        implements(new TestClass(), INTERFACE_SPEC) ---> true;
 
  */
