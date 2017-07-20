@@ -104,7 +104,7 @@ useSingleton();
         'value': 'number',
         'elementName': 'ElementClass'
         'variant': 'any',
-        'methodName': 'method'
+        'methodName': 'function'
     }
 
     which is similar to TypeScript interface declaration.
@@ -112,11 +112,11 @@ useSingleton();
 
     implements(instance, interfaceDefinition) --> true | false
 
-    Use among other follow operations:
-      * Object.getOwnPropertyNames
+    Consider using the following operations:
       * typeof
       * instanceof
       * Object.getPrototypeOf
+      * Object.getOwnPropertyNames
 
     Sample:
 

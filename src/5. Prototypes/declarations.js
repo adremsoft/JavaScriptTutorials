@@ -88,6 +88,7 @@ function ClassExtension(id) {
 }
 
 ClassExtension.prototype = Object.create(ClassWithPrototype.prototype);
+ClassExtension.prototype.constructor = ClassExtension;
 
 ClassExtension.prototype.checkExtension = function() {
     return 'Extension method';
