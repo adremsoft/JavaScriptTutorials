@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta name="App" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetCrunch Dialog</title>
+
+    <link rel="stylesheet" href="css/app.css" media="screen">
+    <link rel="stylesheet" href="common/css/font-awesome.min.css" media="screen">
+
+    <script src="common/lib/angular/angular.min.js"></script>
+    <script src="common/lib/angular/angular-animate.min.js"></script>
+    <script src="common/lib/ui-bootstrap-tpls.min.js"></script>
+</head>
+<body>
+
+    <div id="ctrl" ng-controller="appCtrl as ctrl" ng-cloak class="container" ng-show="ctrl.loaded">
+        <div class="taskContainer">
+            <div class="taskMenu">
+                <h2>{{ctrl.res.taskList}}</h2>
+                <label>
+                    {{ctrl.res.taskName}}
+                    <input type="text" name="taskName" ng-model="ctrl.taskName" required>
+                </label>
+                <button ng-click="ctrl.addTask()">
+                    {{ctrl.res.addTask}}
+                </button>
+            </div>
+
+            <div class="taskList">
+                <ul>
+                    <li ng-repeat="taskName in ctrl.taskList track by $index">
+                        {{taskName}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/services.js"></script>
+    <script src="scripts/filters.js"></script>
+    <script src="scripts/controllers.js"></script>
+    <script src="scripts/directives.js"></script>
+
+</body>
+</html>
