@@ -30,9 +30,7 @@
 
             <div class="taskList">
                 <ul>
-                    <li ng-repeat="taskName in ctrl.taskList track by $index">
-                        {{taskName}}
-                    </li>
+                    <list-item ng-repeat="taskName in ctrl.taskList track by $index" value="{{taskName}}" />
                 </ul>
             </div>
         </div>
