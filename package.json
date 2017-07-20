@@ -8,7 +8,8 @@
     "functions": "node \"./src/2. Functions/functions.js\"",
     "functionalProcessing": "node \"./src/3. Functional processing/functionalProcessing.js\"",
     "asyncTasks": "node \"./src/4. Async tasks/asyncTasks.js\"",
-    "prototypes": "node \"./src/5. Prototypes/usage.js\""
+    "prototypes": "node \"./src/5. Prototypes/usage.js\"",
+    "webServer": "node \"./src/6. AngularJS/webServer.js\""
   },
   "repository": {
     "type": "git"
@@ -18,7 +19,8 @@
   "dependencies": {
     "debug": "2.6.8",
     "request": "2.81.0",
-    "request-promise": "4.2.1"
+    "request-promise": "4.2.1",
+    "express": "4.15.3"
   },
   "devDependencies": {
   }

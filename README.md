@@ -27,3 +27,9 @@
 ### 5. Prototypes
 
 `npm run prototypes`
+
+### 6. Angular JS
+
+`npm run webServer`
+
+The application will be served at: http://localhost:4000/
