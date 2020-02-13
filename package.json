@@ -17,7 +17,7 @@
   "author": "AdRem Software, Inc., New York, NY",
   "license": "Apache License, Version 2.0",
   "dependencies": {
-    "debug": "2.6.8",
+    "debug": "4.1.1",
     "request": "2.81.0",
     "request-promise": "4.2.1",
     "express": "4.15.3"
